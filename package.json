@@ -20,15 +20,20 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/compute-io/.git"
+    "url": "git://github.com/compute-io/mmin.git"
   },
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "minimum",
+    "moving",
+    "window",
+    "moving minimum",
+    "array"
   ],
   "bugs": {
-    "url": "https://github.com/compute-io//issues"
+    "url": "https://github.com/compute-io/mmin/issues"
   },
   "dependencies": {},
   "devDependencies": {
