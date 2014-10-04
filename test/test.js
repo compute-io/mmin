@@ -23,7 +23,7 @@ describe( 'compute-mmin', function tests() {
 		expect( mmin ).to.be.a( 'function' );
 	});
 
-it( 'should throw an error if provided a non-array', function test() {
+	it( 'should throw an error if provided a non-array', function test() {
 		var values = [
 			'5',
 			5,
@@ -73,13 +73,27 @@ it( 'should throw an error if provided a non-array', function test() {
 
 	});
 
+	it( 'should throw an error if the window size is smaller than the array size', function test() {
+
+		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4];
+
+		expect( testValue( 20 ) ).to.throw( TypeError );
+
+		function testValue( value ) {
+			return function() {
+				mmin( testdata , value);
+			}
+		}
+
+	});
+
 	it( 'should find the minimum value in the window', function test() {
 		var data, expected;
 
 		// Simulate some data
 		data = [2,8,2,13,41,7,9,7,12,24,7,10,4,4,3];
 
-		// Expected values of sum in the moving window
+		// Expected values of min in the moving window
 		expected = [2,2,2,7,7,7,7,7,4,4,3];
 
 		var testOut = mmin ( data , 5 );

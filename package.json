@@ -1,7 +1,7 @@
 {
   "name": "compute-mmin",
   "version": "0.0.0",
-  "description": "Compute module.",
+  "description": "Compute module to find the minimum value in a window moving through a numeric array.",
   "author": {
     "name": "Rebekah Smith",
     "email": "rebekahjs17@gmail.com"
