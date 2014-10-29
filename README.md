@@ -1,8 +1,8 @@
-mmin
+Moving Minimum
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Compute module to find the minimum value in a window moving through a numeric array.
+> Computes a moving minimum over a numeric array.
 
 
 ## Installation
@@ -70,7 +70,7 @@ $ make test-cov
 Istanbul creates a `./reports/coverage` directory. To access an HTML version of the report,
 
 ``` bash
-$ open reports/coverage/lcov-report/index.html
+$ make view-cov
 ```
 
 
