@@ -1,6 +1,6 @@
 {
   "name": "compute-mmin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Computes a moving minimum over a numeric array.",
   "author": {
     "name": "Rebekah Smith",
