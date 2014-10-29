@@ -46,7 +46,7 @@ describe( 'compute-mmin', function tests() {
 
 	});
 
-	it( 'should throw an error if not provided a positive, numeric, integer window size', function test() {
+	it( 'should throw an error if provided a window size which is not a positive integer', function test() {
 		var values = [
 			'5',
 			2.7,
@@ -60,47 +60,44 @@ describe( 'compute-mmin', function tests() {
 			[]
 		];
 
-		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4]
-
 		for ( var i = 0; i < values.length; i++ ) {
 			expect( badValue( values[i] ) ).to.throw( TypeError );
 		}
 		function badValue( value ) {
 			return function() {
-				mmin( testdata , value );
+				mmin( [] , value );
 			};
 		}
-
 	});
 
-	it( 'should throw an error if the window size is smaller than the array size', function test() {
+	it( 'should throw an error if the window size is larger than the array size', function test() {
+		var data = [ 1, 2, 3 ];
 
-		var testdata = [3,5,6,8,7,5,4,3,2,5,6,7,8,5,4];
+		expect( foo ).to.throw( TypeError );
 
-		expect( testValue( 20 ) ).to.throw( TypeError );
-
-		function testValue( value ) {
-			return function() {
-				mmin( testdata , value);
-			}
+		function foo() {
+			mmin( data, data.length+1 );
 		}
 
 	});
 
 	it( 'should find the minimum value in the window', function test() {
-		var data, expected;
+		var data, actual, expected, W;
 
-		// Simulate some data
-		data = [2,8,2,13,41,7,9,7,12,24,7,10,4,4,3];
+		// Set the window size:
+		W = 5;
 
-		// Expected values of min in the moving window
-		expected = [2,2,2,7,7,7,7,7,4,4,3];
+		// Simulate some data...
+		data = [ 8, 2, 2, 13, 41, 7, 9, 7, 12, 24, 7, 10, 4, 4, 3 ];
 
-		var testOut = mmin ( data , 5 );
+		// Expected values:
+		expected = [ 2, 2, 2, 7, 7, 7, 7, 7, 4, 4, 3 ];
 
-		for ( var i = 0; i < expected.length; i++ ) {
-			assert.strictEqual( testOut[i], expected[i] );
-		}
+		// Actual minimum values:
+		actual = mmin( data , 5 );
+
+		assert.strictEqual( actual.length, data.length-W+1 );
+		assert.deepEqual( actual, expected );
 	});
 
 });

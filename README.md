@@ -22,21 +22,36 @@ To use the module,
 var mmin = require( 'compute-mmin' );
 ```
 
+#### mmin( arr, window )
+
+Slides a `window` over a numeric `array` to compute a moving minimum.
+
+``` javascript
+var data = [ 1, 3, 2, 5, 4 ];
+
+mmin( data, 2 );
+// returns [ 1, 2, 2, 4 ]
+```
+
+Note: the returned `array` has length `L - W + 1`, where `L` is the length of the input `array` and `W` is the `window` size. 
+
 
 ## Examples
 
 ``` javascript
+var mmin = require( 'compute-mmin' );
+
+// Simulate some data...
 var data = new Array( 50 );
+
 for ( var i = 0; i < data.length; i++ ) {
-	data[i] = Math.random() * 100;
+	data[ i ] = Math.random() * 100;
 }
 
-// Give function an array of data and desired window size
-var outArr = mmin( data, 5 );
+// Compute the moving minimum:
+var arr = mmin( data, 7 );
 
-for ( i = 0; i < outArr.length; i++) {
-	console.log( outArr[i] );
-}
+console.log( arr.join( '\n' ) );
 ```
 
 To run the example code from the top-level application directory,
