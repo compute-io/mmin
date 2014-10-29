@@ -81,7 +81,7 @@ describe( 'compute-mmin', function tests() {
 
 	});
 
-	it( 'should find the minimum value in the window', function test() {
+	it( 'should find the minimum value in each window', function test() {
 		var data, actual, expected, W;
 
 		// Set the window size:
