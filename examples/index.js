@@ -1,3 +1,5 @@
+'use strict';
+
 var mmin = require( './../lib' );
 
 // Simulate some data...
